@@ -10,8 +10,8 @@
     <form th:action="@{/add}" th:method="post" th:object="${todoItem}">
         <label for="name">Название</label>
         <input id="name" type="text" name="text">
-        <label for="subtasksIds">ID Подзадач</label>
-        <input id="subtasksIds" type="text" name="subtasksIds">
+<!--        <label for="subtasksIds">ID Подзадач</label>-->
+<!--        <input id="subtasksIds" type="text" name="subtasksIds">-->
         <input type="submit" value="Добавить">
     </form>
 </div>
@@ -19,8 +19,8 @@
     <h1>Список задач</h1>
     <p th:each="item : ${todos}">
         <span th:text="${item}"></span>
-        <input type="checkbox" th:onclick="|window.location.href='/switchState/${item.id}'|" th:checked="${item.state}">
-        <button th:onclick="|window.location.href='/delete/${item.id}'|">Удалить</button>
+<!--        <input type="checkbox" th:onclick="|window.location.href='/switchState/${item.id}'|" th:checked="${item.state}">-->
+<!--        <button th:onclick="|window.location.href='/delete/${item.id}'|">Удалить</button>-->
     </p>
 </div>
 </body>

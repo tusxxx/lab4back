@@ -24,7 +24,7 @@ class TodoController(private val todoRepository: TodoRepository) {
         return "redirect:/"
     }
 
-    @GetMapping("/delete/{todoId}")
+    @DeleteMapping("/delete/{todoId}")
     fun delete(model: Model, @PathVariable todoId: Long): String {
         todoRepository.deleteById(todoId)
         return "redirect:/"
@@ -32,7 +32,7 @@ class TodoController(private val todoRepository: TodoRepository) {
 
     @PostMapping("/add")
     fun add(model: Model, @ModelAttribute todoItem: TodoItem): String {
-        if (todoRepository.findAll().map { it.id }.containsAll(todoItem.subtasksIds.map { it.toLong() })) {
+        if (todoRepository.findAll().map { it.id }.containsAll(todoItem.subtasksIds.map { it })) {
             todoRepository.save(todoItem)
         }
         return "redirect:/"

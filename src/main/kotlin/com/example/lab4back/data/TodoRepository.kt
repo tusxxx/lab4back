@@ -1,5 +1,5 @@
 package com.example.lab4back.data
 
-import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.data.mongodb.repository.MongoRepository
 
-interface TodoRepository : JpaRepository<TodoItem, Long>
+interface TodoRepository : MongoRepository<TodoItem, Long>

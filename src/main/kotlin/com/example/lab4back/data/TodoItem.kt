@@ -5,14 +5,15 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import org.bson.types.ObjectId
+import org.springframework.data.mongodb.core.mapping.Document
 
-@Entity
+@Document(collection = "ToDo")
 data class TodoItem(
         @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
-        val id: Long = 0,
+        val id: ObjectId = ObjectId(),
         val text: String = "",
         @ElementCollection
-        val subtasksIds: List<String> = emptyList(),
+        val subtasksIds: List<ObjectId> = emptyList(),
         val state: Boolean = false
 )
